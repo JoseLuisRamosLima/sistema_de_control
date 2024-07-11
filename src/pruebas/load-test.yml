@@ -1,0 +1,24 @@
+config:
+  target: 'http://localhost:3000' # Cambia al URL de tu backend si es necesario
+  phases:
+    - duration: 60 # Duración de la prueba en segundos
+      arrivalRate: 10 # Número de usuarios por segundo
+
+scenarios:
+  - flow:
+      - post:
+          url: "/api/login"
+          json:
+            username: "test1" # Reemplaza con un usuario válido
+            password: "test123" # Reemplaza con una contraseña válida
+          capture:
+            - json: "$.token" # Ajusta esto basado en cómo tu API devuelve el token
+              as: "authToken"
+      - get:
+          url: "/api/profile"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+      - get:
+          url: "/api/auth/verify"
+          headers:
+            Authorization: "Bearer {{ authToken }}"

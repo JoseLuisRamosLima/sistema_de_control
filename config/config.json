@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "baseCrud",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "esModule": true
+  },
+
+
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "baseCrud",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "baseCrud",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
