@@ -1,7 +1,6 @@
 import Chofer from "../models/chofer.model.js";
 import Vehiculo from "../models/vehiculo.model.js";
 
-
 export const getChofers = async (req, res) => {
     console.log("datos recibidos: ", Chofer)
     const chofers = await Chofer.findAll({

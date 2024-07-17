@@ -1,21 +1,23 @@
-import { model } from "mongoose";
+
+
 import Gps from "../models/gps.model.js";
 import Ruta from "../models/ruta.model.js";
-import { where } from "sequelize";
+
 // import Vehiculo from "../models/vehiculo.model.js";
 
 
 export const getGpss = async (req, res) => {
-try {
+    try {
         console.log("ok linea")
         console.log(" datos de ", Gps);
         const gpss = await Gps.findAll();
         // console.log("ok linea datos recibidos ", lineas);
         res.json(gpss);
-    
-} catch (error) {
-    console.error("Error DE GPS revisando ",error)
-}};
+
+    } catch (error) {
+        console.error("Error DE GPS revisando ", error)
+    }
+};
 
 // gps con id 
 export const getGps = async (req, res) => {
@@ -25,9 +27,22 @@ export const getGps = async (req, res) => {
     res.json(gps);
 };
 
+export const getGpsubi = async (req, res) => {
+    try {
+        const gpsubi = await Gps.findByPk(req.params.gpsid, {
+            attributes: ['lati1', 'long1', 'lati2', 'long2', 'lati3', 'long3']
+        });
+        if (!gpsubi) res.status(404).json({ message: 'gps no encontrado ' });
+        res.json(gpsubi);
+    } catch (error) {
+        console.error("Error de captureae gps ", error);
+        res.status(500).json({ message: 'error al obtener la informacion de ubi ' });
+    }
+}
+
 export const capturaGPS = async (req, res) => {
     const { rutaid } = req.params;
-    const { vehiculoid } = req.body; 
+    const { vehiculoid } = req.body;
 
     console.log(`buscando ruta id : ${rutaid}`);
     try {
@@ -67,7 +82,7 @@ export const capturaGPS = async (req, res) => {
 
 };
 
-export const eliminartodoGps = async(req, res)=> {
+export const eliminartodoGps = async (req, res) => {
     try {
         await Gps.destroy({ where: {} });
         res.status(200).send("Todos los datos an sido eliminados")
@@ -76,6 +91,21 @@ export const eliminartodoGps = async(req, res)=> {
         res.status(500).send("Error al eliminar los gps");
     }
 };
+
+export const updateGps = async (req, res) => {
+    try {
+        const [updateRowsCount, updateGps] = await Gps.update(req.body, {
+            where: { gpsid: req.params.gpsid },
+            returning: true,
+        })
+        if (updateRowsCount == 0) {
+            return res.status(404).json({ message: "gps no encontrado " });
+        }
+        res.json(updateGps[0]);
+    } catch (error) {
+        return res.status(404).json({ message: "gpsid no encontrado "});
+    }
+}
 
 
 
