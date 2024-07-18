@@ -5,7 +5,9 @@ import { AuthProvider } from "./context/AuthContext";
 import DasboardPage from "./pages/dasboard";
 
 // importaciones de inicio login home y register
-import HomePage from "./pages/HomePage";
+
+// import HomePage from "./pages/HomePage";
+
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 
@@ -77,8 +79,10 @@ function App() {
                     <Navbar />
                     <main className="container mx-auto px-10 py-5 flex-1">
                       <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/login" element={<LoginPage />} />
+
+                        {/* <Route path="/" element={<HomePage />} /> */}
+                        
+                        <Route path="/" element={<LoginPage />} />
                         <Route path="/registrar" element={<RegisterPage />} />
                         <Route element={<ProtectedRoute />}>
 

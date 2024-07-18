@@ -3,6 +3,6 @@
 
 export default function HomePage() {
     return (
-        <div>HomePage</div>
+        <div>HomePage ir a login</div>
     )
 }
