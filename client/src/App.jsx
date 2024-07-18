@@ -52,11 +52,11 @@ import { GpsProvider } from "./context/GpsContext";
 
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import { useState } from "react";
+// import { useState } from "react";
 
 
 function App() {
-  const [sidebarToggle, setSidebarToggle] = useState(false)
+  // const [sidebarToggle, setSidebarToggle] = useState(false)
   return (
 
     // <div className=" flex">
