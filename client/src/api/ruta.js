@@ -3,8 +3,6 @@ import axios from "../api/axios";
 export const getRutasRequest = async() =>{
     try {
         const res = await axios.get('/ruta')
-// enviar como un conjunto de datos no como un array especifo que es con res.data solo res
-        // console.log("datos desde ruta.js ", res)
         return res
     } catch (error) {
         console.log("Error al obtener rutas ", error)
