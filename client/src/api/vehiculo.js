@@ -3,7 +3,7 @@ import axios from "../api/axios";
 export const getVehiculosRequest = async() =>{
     try {
         const response = await axios.get('/vehiculos')
-        return response.data;
+        return response
     } catch (error) {
         console.log("Error al obtener los vehiculos ", error)
         throw error;
@@ -13,7 +13,7 @@ export const getVehiculosRequest = async() =>{
 export const getVehiculoRequest = async(vehiculoid)=> {
     try {
         const response = await axios.get(`/vehiculo/${vehiculoid}`)
-        return response.data;
+        return response
     } catch (error) {
         console.log("Error al obtener el vehiculo: ", error)
         throw error;

@@ -9,7 +9,7 @@ export const registerusuario = async(userData)=> {
         const res = await axios.post(`/registerusuario`, userData);
         console.log("respuesta del servido DE AUTH.JSr", res.data);
         console.log("inserccion correcto");
-        return res.data;
+        return res;
     } catch (error) {
         console.error("Error al realizar solicitud", error);
         throw error;

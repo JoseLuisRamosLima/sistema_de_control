@@ -7,7 +7,7 @@ export const getGpssRequest = async() =>{
         console.log("ok entro al gps axios js")
         const res = await axios.get('/gps')
         console.log("ok gps get FRONTEND  ", res)
-        return res.data;
+        return res
     } catch (error) {
         console.log("Error al obtener gps ", error)
         throw error;
