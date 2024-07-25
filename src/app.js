@@ -22,7 +22,7 @@ app.use(
         origin: [
             'http://localhost:5173', 
             'https://sistema-de-control.vercel.app',
-            'https://sistema-de-control-i6kwka0mw-joses-projects-95b7b846.vercel.app'
+            'https://sistema-de-control.onrender.com'
         ],
         credentials: true,
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
