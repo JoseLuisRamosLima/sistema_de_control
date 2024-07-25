@@ -19,7 +19,7 @@
 
 import axios from "axios";
 
-const token = localStorage.getItem('token');
+// const token = localStorage.getItem('token');
 
 const instance = axios.create({
     // **************************************
@@ -29,9 +29,9 @@ const instance = axios.create({
     // CONSUMO DE ENSPOINT AL CODIGO DE PRODUCCION HOST ====RENDER
     baseURL: 'https://sistema-de-control.onrender.com/api',
     withCredentials: true,
-    headers: {
-        'Authorization': `Bearer ${token}`
-    }
+    // headers: {
+    //     'Authorization': `Bearer ${token}`
+    // }
 })
 
 export default instance
