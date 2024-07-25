@@ -5,7 +5,7 @@ export const getGruposRequest = async() =>{
     try {
         const res = await axios.get('/grupo')
         console.log("dato grupos ")
-        return res
+        return res.data;
     } catch (error) {
         console.log("Erro el obtener grupos desde back: ", error)
         throw error;
@@ -17,7 +17,7 @@ export const getGrupoRequest = async(grupoid) =>{
         console.log("datos okgetgrpo");
         const response = await axios.get(`/grupo/${grupoid}`);
         console.log("datos del bak get grupo ", response);
-        return response
+        return response.data;
     } catch (error) {
         console.log("Erro el obtener grupo back : ", error)
         throw error;
@@ -30,7 +30,7 @@ export const createGrupoRequest = async(grupo) =>{
         // console.log("hasta aki ok de create ")
         // console.log("datos enviado ", grupo)
         const res = await axios.post('/grupo', grupo)
-        return res;
+        return res.data;
     } catch (error) {
         console.log("Erro el obtener gurpos de create: ", error)
         throw error;

@@ -4,7 +4,7 @@ export const getLineasRequest = async() =>{
     try {
         const res = await axios.get('/linea')
         console.log("ok ligea get front ", res)
-        return res
+        return res.data;
     } catch (error) {
         console.log("Error al obtener rutas ", error)
         throw error;
@@ -15,7 +15,7 @@ export const getLineaRequest = async(lineaid)=> {
     try {
         const response = await axios.get(`/linea/${lineaid}`)
         // console.log("dato lineas get" , response)
-        return response
+        return response.data;
     } catch (error) {
         console.log("Error al obtener la linea : ", error)
         throw error;
@@ -25,7 +25,7 @@ export const getLineaRequest = async(lineaid)=> {
 export const createLineaRequest = async(lineaData) => {
     try {
         const resp = await axios.post('/linea', lineaData)
-        return resp;
+        return resp.data;
     } catch (error) {
         if (error.response) {
             // La solicitud fue realizada y el servidor respondió con un estado de error
@@ -47,7 +47,7 @@ export const createLineaRequest = async(lineaData) => {
 export const updateLineaRequest =(lineaid, linea)=>{
     try {
         const response = axios.put(`/linea/${lineaid}`, linea);
-        return response.data
+        return response.data;
     } catch (error) {
         console.error("Error al actualizar la linea", error);
     }
